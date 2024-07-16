@@ -26,10 +26,10 @@ function App() {
         <TabsContent value="Notes" className="w-full">
           <Notes />
         </TabsContent>
-        <TabsContent value="Reminders">
+        <TabsContent value="Reminders" className="w-full">
           <Reminders />
         </TabsContent>
-        <TabsContent value="To-Dos">
+        <TabsContent value="To-Dos" className="w-full">
           <To_Dos />
         </TabsContent>
       </Tabs>

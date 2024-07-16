@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "./ui/card";
 
-function CardBox() {
+function NoteCardBox() {
   return (
     <Card className="h-64 bg-orange-100">
       <CardHeader>
@@ -24,4 +24,4 @@ function CardBox() {
   );
 }
 
-export default CardBox;
+export default NoteCardBox;
