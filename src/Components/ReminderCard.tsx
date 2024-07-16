@@ -1,21 +1,26 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card"
-
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "./ui/card";
 
 function ReminderCardBox() {
   return (
-    <Card className="h-64 bg-orange-100">
-    <CardHeader>
-      <CardTitle>Title : </CardTitle>
-      <CardDescription>title</CardDescription>
-    </CardHeader>
-    <CardContent>
-      <p>Card Content</p>
-    </CardContent>
-    <CardFooter>
-      <p>Card Footer</p>
-    </CardFooter>
-  </Card>
-  )
+    <Card className="bg-gray-50 border-l-4 overflow-hidden border-l-green-500 rounded-l-md flex">
+      <div className="bg-red-500 flex-1">1</div>
+      <div className="bg-yellow-500">
+      <CardHeader>
+        <CardTitle className="">Title</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>Reminder Content</p>
+      </CardContent>
+      </div>
+    </Card>
+  );
 }
 
-export default ReminderCardBox
+export default ReminderCardBox;
