@@ -23,7 +23,7 @@ function App() {
             To-Dos
           </TabsTrigger>
         </TabsList>
-        <TabsContent value="Notes">
+        <TabsContent value="Notes" className="w-full">
           <Notes />
         </TabsContent>
         <TabsContent value="Reminders">
