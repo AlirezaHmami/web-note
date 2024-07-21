@@ -8,7 +8,7 @@ function Notes({ onClick }: { onClick: () => void }) {
   const tmepNotes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   
   return (
-    <div className="grid grid-cols-5 gap-3 w-full border border-red-700 p-3 relative">
+    <div className="grid grid-cols-5 gap-3 w-full p-3 relative">
       {tmepNotes.map((t) => (
         <NoteCardBox key={t} />
       ))}
