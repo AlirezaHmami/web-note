@@ -8,7 +8,6 @@ import To_Dos from "./Views/To-Dos";
 import { useState } from "react";
 function App() {
   const [modalShow, setModalShow] = useState<boolean>(false)
-  console.log(modalShow);
   
   return (
     <>
