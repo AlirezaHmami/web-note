@@ -21,6 +21,8 @@ function ModalNote({ onClose }: { onClose: () => void }) {
           />
         </span>
 
+
+
         <label htmlFor="content">Content :</label>
         <textarea
           id="content"

@@ -1,5 +1,6 @@
 import ModalNote from "./Components/ModalNote";
 import Navbar from "./Components/Navbar";
+import Tst from "./Components/Tst";
 import { Tabs, TabsContent, TabsTrigger, TabsList } from "./Components/ui/tabs";
 import Notes from "./Views/Notes";
 import Reminders from "./Views/Reminders";
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <Tst />
       <Tabs
         defaultValue="Notes"
         className="w-[90vw] mx-auto flex flex-col items-center justify-start"
