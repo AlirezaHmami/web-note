@@ -8,12 +8,15 @@ function ModalNote({ onClose }: { onClose: () => void }) {
   const [title, setTitle] = useState<string>("");
   const [noteColor, setNoteColor] = useState<string>("gray");
   const [content, setContent] = useState<string>("");
-  const [alert , setAlert] = useState<boolean>(false)
+  const [alert, setAlert] = useState<boolean>(false);
   const dispatch = useDispatch();
+
+  const colors = ["orange", "gray", "blue", "green", "red", "yellow", "purple"];
 
   const handlSave = () => {
     if (title !== "" && content !== "") {
       const note: notesState = {
+        id: Date.now(),
         title,
         content,
         noteColor,
@@ -21,7 +24,7 @@ function ModalNote({ onClose }: { onClose: () => void }) {
       dispatch(addNote(note));
       onClose();
     } else {
-      setAlert(true)
+      setAlert(true);
     }
   };
   return (
@@ -50,34 +53,13 @@ function ModalNote({ onClose }: { onClose: () => void }) {
         <div className="flex items-center">
           <label className="mr-3">Note color :</label>
           <div className="flex space-x-3">
-            <div
-              className="bg-orange-100 hover:bg-orange-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer"
-              onClick={() => setNoteColor("orange")}
-            ></div>
-            <div
-              className="bg-gray-100 hover:bg-gray-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer"
-              onClick={() => setNoteColor("gray")}
-            ></div>
-            <div
-              className="bg-blue-100 hover:bg-blue-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer"
-              onClick={() => setNoteColor("blue")}
-            ></div>
-            <div
-              className="bg-green-100 hover:bg-green-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer"
-              onClick={() => setNoteColor("green")}
-            ></div>
-            <div
-              className="bg-red-100 hover:bg-red-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer"
-              onClick={() => setNoteColor("red")}
-            ></div>
-            <div
-              className="bg-yellow-100 hover:bg-yellow-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer"
-              onClick={() => setNoteColor("yellow")}
-            ></div>
-            <div
-              className="bg-purple-100 hover:bg-purple-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer"
-              onClick={() => setNoteColor("purple")}
-            ></div>
+            {colors.map((color, index) => (
+              <div
+                key={index}
+                className={`bg-${color}-100 hover:bg-${color}-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer`}
+                onClick={() => setNoteColor(color)}
+              ></div>
+            ))}
           </div>
         </div>
 
@@ -98,13 +80,20 @@ function ModalNote({ onClose }: { onClose: () => void }) {
         </Button>
       </div>
       <div id="footer" className="p-1"></div>
-      {alert && <div className="absolute bg-gray-100 shadow-lg shadow-gray-900 rounded-lg w-1/2 h-1/3 z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="w-full h-full flex flex-col items-center justify-evenly">
-          <TiWarning className="text-5xl text-amber-500"/>
-          <p>Inputs can't be empty</p>
-          <Button className="bg-green-500 hover:bg-green-700 w-1/4" onClick={()=>setAlert(false)}>OK</Button>
+      {alert && (
+        <div className="absolute bg-gray-100 shadow-lg shadow-gray-900 rounded-lg w-1/2 h-1/3 z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="w-full h-full flex flex-col items-center justify-evenly">
+            <TiWarning className="text-5xl text-amber-500" />
+            <p>Inputs can't be empty</p>
+            <Button
+              className="bg-green-500 hover:bg-green-700 w-1/4"
+              onClick={() => setAlert(false)}
+            >
+              OK
+            </Button>
+          </div>
         </div>
-      </div>}
+      )}
     </div>
   );
 }

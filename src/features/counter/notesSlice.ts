@@ -2,6 +2,7 @@ import {createSlice} from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit/react"
 
 export type notesState = {
+  id: number,
   title : string,
   noteColor : string,
   content : string,
