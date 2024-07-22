@@ -20,6 +20,8 @@ function Tst() {
         </button>
         {/* <span>{count}</span> */}
         {notes.map((note , index)=><li key={index} >title: {note.title}| id: {note.id}</li>)}
+
+
         
         <button
           className="bg-blue-700 rounded-md mx-1 px-1"
