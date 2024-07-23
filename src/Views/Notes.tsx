@@ -27,7 +27,8 @@ function Notes({ onClick }: { onClick: () => void }) {
 
   return (
     <div className="grid grid-cols-5 gap-3 w-full p-3 relative">
-      {[...notes].reverse().map((note) => (
+      { notes.length == 0 ? <p className="col-start-3 row-start-13 text-center italic font-bold text-slate-500">"Write you're first note!"</p> :
+      [...notes].reverse().map((note) => (
         <NoteCardBox
           key={note.id}
           {...note}
