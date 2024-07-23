@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "../features/counter/counterSlice";
 import notesSlice from "@/features/counter/notesSlice";
+import todosSlice  from "@/features/counter/todosSlice";
 
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    notes : notesSlice
+    notes : notesSlice,
+    todos : todosSlice
   }
 });
 

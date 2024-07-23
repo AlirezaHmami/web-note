@@ -24,7 +24,7 @@ function NoteCardBox({ id, content, noteColor, title , onMoreBtn }: INoteCardBox
     dispatch(removeNote(id));
   };
   return (
-    <Card className={` bg-${noteColor}-100 `}>
+    <Card className={` bg-${noteColor}-100 select-none`}>
       <CardHeader>
         <CardTitle className="">
           Title:

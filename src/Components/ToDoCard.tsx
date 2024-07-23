@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 
 function ToDoCard() {
   return (
-    <Card className="w-1/2 flex items-center justify-between">
+    <Card className="w-2/3 flex items-center justify-between">
     <CardHeader>
     <CardTitle className="">
         Title
