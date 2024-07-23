@@ -7,14 +7,17 @@ import {
   TooltipTrigger,
 } from "@/Components/ui/tooltip";
 import { FaPen } from "react-icons/fa6";
+import {useSelector} from "react-redux"
+import { RootState } from "@/App/Store"
 
 function Notes({ onClick }: { onClick: () => void }) {
-  const tmepNotes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  // const tmepNotes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const notes = useSelector((state:RootState)=>state.notes.values)
 
   return (
     <div className="grid grid-cols-5 gap-3 w-full p-3 relative">
-      {tmepNotes.map((t) => (
-        <NoteCardBox key={t} />
+      {[...notes].reverse().map((note) => (
+        <NoteCardBox key={note.id} title={note.title} content={note.content} noteColor={note.noteColor} id={note.id} />
       ))}
 
       <TooltipProvider>

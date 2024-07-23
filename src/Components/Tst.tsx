@@ -1,10 +1,10 @@
 import { RootState } from "@/App/Store"
 import {useSelector , useDispatch} from "react-redux"
 import { increment , decrement } from "@/features/counter/counterSlice"
-import { useEffect } from "react"
+// import { useEffect } from "react"
 
 function Tst() {
-  const count = useSelector((state: RootState) => state.counter.value)
+  // const count = useSelector((state: RootState) => state.counter.value)
   const dispatch = useDispatch()
   const notes = useSelector((state:RootState)=>state.notes.values)
 
