@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit"
+import {createSlice , current} from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit/react"
 
 export type notesState = {
@@ -8,7 +8,11 @@ export type notesState = {
   content : string,
 }
 
-const initialState: { values: notesState[] } = { values: [] };
+
+const initialState: { values: notesState[] } = { 
+  values: (localStorage.getItem("notes") === null) ? [] : JSON.parse(localStorage.getItem("notes") as string)
+  };
+
 
 export const notesSlice = createSlice({
   name : 'notes',
@@ -16,6 +20,8 @@ export const notesSlice = createSlice({
   reducers:{
     addNote: (state, action: PayloadAction<notesState>) => {
       state.values.push(action.payload);
+      let notesData = current(state.values)
+      localStorage.setItem("notes",JSON.stringify(notesData))
     }
   }
 })
