@@ -6,7 +6,7 @@ import { increment , decrement } from "@/features/counter/counterSlice"
 function Tst() {
   // const count = useSelector((state: RootState) => state.counter.value)
   const dispatch = useDispatch()
-  const notes = useSelector((state:RootState)=>state.notes.values)
+  const todos = useSelector((state:RootState)=>state.todos.values)
 
   return (
     <div>
@@ -19,7 +19,7 @@ function Tst() {
           Increment
         </button>
         {/* <span>{count}</span> */}
-        {notes.map((note , index)=><li key={index} >title: {note.title}| id: {note.id}</li>)}
+        {/* {todos.map((todo)=><li key={todo.id} >title: {todo.title}| id: {todo.id}</li>)} */}
 
 
         

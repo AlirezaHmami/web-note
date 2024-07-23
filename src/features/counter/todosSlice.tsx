@@ -27,8 +27,15 @@ export const todosSlice = createSlice({
       state.values = state.values.filter(todo => todo.id !== action.payload);
       localStorage.setItem("todos", JSON.stringify(state.values));
     },
+    completeTodo: (state , action : PayloadAction<number> ) => {
+      const todoIndex = state.values.findIndex(todo => todo.id === action.payload);
+      if (todoIndex !== -1) {
+        state.values[todoIndex].completed = !state.values[todoIndex].completed;
+        localStorage.setItem("todos", JSON.stringify(state.values));
+      }
+    }
   },
 });
 
-export const { addToDo , removeToDo } = todosSlice.actions;
+export const { addToDo , removeToDo , completeTodo } = todosSlice.actions;
 export default todosSlice.reducer;
