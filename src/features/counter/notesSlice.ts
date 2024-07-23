@@ -1,30 +1,37 @@
-import {createSlice , current} from "@reduxjs/toolkit"
-import type { PayloadAction } from "@reduxjs/toolkit/react"
+import { createSlice, current } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit/react";
 
 export type notesState = {
-  id: number,
-  title : string,
-  noteColor : string,
-  content : string,
-}
+  id: number;
+  title: string;
+  noteColor: string;
+  content: string;
+};
 
-
-const initialState: { values: notesState[] } = { 
-  values: (localStorage.getItem("notes") === null) ? [] : JSON.parse(localStorage.getItem("notes") as string)
-  };
-
+const initialState: { values: notesState[] } = {
+  values:
+    localStorage.getItem("notes") === null
+      ? []
+      : JSON.parse(localStorage.getItem("notes") as string),
+};
 
 export const notesSlice = createSlice({
-  name : 'notes',
+  name: "notes",
   initialState,
-  reducers:{
+  reducers: {
     addNote: (state, action: PayloadAction<notesState>) => {
       state.values.push(action.payload);
-      let notesData = current(state.values)
-      localStorage.setItem("notes",JSON.stringify(notesData))
-    }
-  }
-})
+      let notesData = current(state.values);
+      localStorage.setItem("notes", JSON.stringify(notesData));
+    },
+    removeNote: (state, action: PayloadAction<number>) => {
+      state.values = state.values.filter(note => note.id !== action.payload);
+      // let notesData = current(state.values);
+      localStorage.setItem("notes", JSON.stringify(state.values));
+      //TODO this reducer don't work. fix that
+    },
+  },
+});
 
-export const {addNote} = notesSlice.actions
-export default notesSlice.reducer
+export const { addNote , removeNote } = notesSlice.actions;
+export default notesSlice.reducer;

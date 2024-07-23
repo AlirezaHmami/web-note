@@ -9,8 +9,14 @@ import {
 } from "./ui/card";
 import { MdDelete } from "react-icons/md";
 import { CgMoreO } from "react-icons/cg";
+import { useDispatch } from "react-redux";
+import { removeNote } from "@/features/counter/notesSlice";
 
 function NoteCardBox({ id, content, noteColor, title }: notesState) {
+  const dispatch = useDispatch();
+  const removrHandler = () => {
+    dispatch(removeNote(id))
+  }
   return (
     <Card className={` bg-${noteColor}-100 `}>
       <CardHeader>
@@ -24,7 +30,10 @@ function NoteCardBox({ id, content, noteColor, title }: notesState) {
       </CardContent>
       <CardFooter className="flex items-center justify-between">
         <CgMoreO className="text-2xl cursor-pointer text-black text-opacity-30 hover:text-opacity-70" />
-        <MdDelete className="text-2xl cursor-pointer text-black text-opacity-30 hover:text-opacity-70"  />
+        <MdDelete
+          className="text-2xl cursor-pointer text-black text-opacity-30 hover:text-opacity-70"
+          onClick={removrHandler}
+        />
       </CardFooter>
     </Card>
   );

@@ -11,7 +11,6 @@ import {useSelector} from "react-redux"
 import { RootState } from "@/App/Store"
 
 function Notes({ onClick }: { onClick: () => void }) {
-  // const tmepNotes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const notes = useSelector((state:RootState)=>state.notes.values)
 
   return (
