@@ -25,6 +25,7 @@ function ModalNote({ onClose }: { onClose: () => void }) {
       setAlert(true);
     }
   };
+
   return (
     <div className="bg-gray-100 w-1/2 absolute top-1/2 left-1/2 right-auto bottom-auto -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-in-out shadow-black shadow-lg rounded-lg overflow-hidden z-20">
       <div id="title" className="flex items-center justify-between p-1">

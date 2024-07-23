@@ -1,3 +1,4 @@
+import { useState } from "react";
 import NoteCardBox from "@/Components/NoteCard";
 import { Button } from "@/Components/ui/button";
 import {
@@ -7,16 +8,31 @@ import {
   TooltipTrigger,
 } from "@/Components/ui/tooltip";
 import { FaPen } from "react-icons/fa6";
-import {useSelector} from "react-redux"
-import { RootState } from "@/App/Store"
+import { useSelector } from "react-redux";
+import { RootState } from "@/App/Store";
+import FullViewNoteModal from "@/Components/FullViewNoteModal";
+import { notesState } from "@/features/counter/notesSlice";
 
 function Notes({ onClick }: { onClick: () => void }) {
-  const notes = useSelector((state:RootState)=>state.notes.values)
+  const notes = useSelector((state: RootState) => state.notes.values);
+  const [fullViewNoteModalShow, setFullViewNoteModalShow] =
+    useState<boolean>(false);
+  const [sendModalPropsItems, setSendModalPropsItems] = useState<notesState>();
+
+  const handelModal = (id: number) => {
+    setFullViewNoteModalShow(true);
+    const selectedNote = notes.filter((note) => note.id === id);
+    setSendModalPropsItems(selectedNote[0]);
+  };
 
   return (
     <div className="grid grid-cols-5 gap-3 w-full p-3 relative">
       {[...notes].reverse().map((note) => (
-        <NoteCardBox key={note.id} title={note.title} content={note.content} noteColor={note.noteColor} id={note.id} />
+        <NoteCardBox
+          key={note.id}
+          {...note}
+          onMoreBtn={() => handelModal(note.id)}
+        />
       ))}
 
       <TooltipProvider>
@@ -34,6 +50,15 @@ function Notes({ onClick }: { onClick: () => void }) {
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
+      {fullViewNoteModalShow && (
+        <FullViewNoteModal
+          id={sendModalPropsItems?.id as number}
+          title={sendModalPropsItems?.title as string}
+          content={sendModalPropsItems?.content as string}
+          noteColor={sendModalPropsItems?.noteColor as string}
+          onCloseBtn={()=>setFullViewNoteModalShow(false)}
+        />
+      )}
     </div>
   );
 }

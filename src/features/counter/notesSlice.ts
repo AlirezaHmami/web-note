@@ -26,9 +26,7 @@ export const notesSlice = createSlice({
     },
     removeNote: (state, action: PayloadAction<number>) => {
       state.values = state.values.filter(note => note.id !== action.payload);
-      // let notesData = current(state.values);
       localStorage.setItem("notes", JSON.stringify(state.values));
-      //TODO this reducer don't work. fix that
     },
   },
 });
