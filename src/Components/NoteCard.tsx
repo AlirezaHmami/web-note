@@ -1,5 +1,4 @@
-
-import { notesState } from "@/features/counter/notesSlice";
+import { notesState } from "@/features/notesSlice";
 import {
   Card,
   CardContent,
@@ -11,15 +10,21 @@ import {
 import { MdDelete } from "react-icons/md";
 import { CgMoreO } from "react-icons/cg";
 import { useDispatch } from "react-redux";
-import { removeNote } from "@/features/counter/notesSlice";
+import { removeNote } from "@/features/notesSlice";
 
-interface INoteCardBox extends notesState{
-  onMoreBtn : ()=> void
+interface INoteCardBox extends notesState {
+  onMoreBtn: () => void;
 }
 
-function NoteCardBox({ id, content, noteColor, title , onMoreBtn }: INoteCardBox) {
+function NoteCardBox({
+  id,
+  content,
+  noteColor,
+  title,
+  onMoreBtn,
+}: INoteCardBox) {
   const dispatch = useDispatch();
-  
+
   const removrHandler = () => {
     dispatch(removeNote(id));
   };
@@ -28,7 +33,9 @@ function NoteCardBox({ id, content, noteColor, title , onMoreBtn }: INoteCardBox
       <CardHeader>
         <CardTitle className="">
           Title:
-          <CardDescription className="inline-block">&nbsp;{title}</CardDescription>
+          <CardDescription className="inline-block">
+            &nbsp;{title}
+          </CardDescription>
         </CardTitle>
       </CardHeader>
       <CardContent>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardHeader, CardTitle } from "./ui/card";
 import { MdDelete, MdDone } from "react-icons/md";
-import { completeTodo, removeToDo, todosState } from "@/features/counter/todosSlice";
+import { completeTodo, removeToDo, todosState } from "@/features/todosSlice";
 import { useDispatch } from "react-redux";
 
 function ToDoCard({ id, title, completed }: todosState) {

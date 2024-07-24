@@ -2,7 +2,7 @@ import { useState } from "react";
 import ToDoCard from "@/Components/ToDoCard";
 import { Button } from "@/Components/ui/button";
 import { useDispatch, useSelector } from "react-redux";
-import { addToDo, todosState } from "@/features/counter/todosSlice";
+import { addToDo, todosState } from "@/features/todosSlice";
 import { RootState } from "@/App/Store";
 
 function To_Dos() {

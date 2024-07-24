@@ -11,7 +11,7 @@ import { FaPen } from "react-icons/fa6";
 import { useSelector } from "react-redux";
 import { RootState } from "@/App/Store";
 import FullViewNoteModal from "@/Components/FullViewNoteModal";
-import { notesState } from "@/features/counter/notesSlice";
+import { notesState } from "@/features/notesSlice";
 
 function Notes({ onClick }: { onClick: () => void }) {
   const notes = useSelector((state: RootState) => state.notes.values);
@@ -27,14 +27,21 @@ function Notes({ onClick }: { onClick: () => void }) {
 
   return (
     <div className="grid grid-cols-5 gap-3 w-full p-3 relative">
-      { notes.length == 0 ? <p className="col-start-3 row-start-13 text-center italic font-bold text-slate-500">"Write you're first note!"</p> :
-      [...notes].reverse().map((note) => (
-        <NoteCardBox
-          key={note.id}
-          {...note}
-          onMoreBtn={() => handelModal(note.id)}
-        />
-      ))}
+      {notes.length == 0 ? (
+        <p className="col-start-3 row-start-13 text-center italic font-bold text-slate-500">
+          "Write you're first note!"
+        </p>
+      ) : (
+        [...notes]
+          .reverse()
+          .map((note) => (
+            <NoteCardBox
+              key={note.id}
+              {...note}
+              onMoreBtn={() => handelModal(note.id)}
+            />
+          ))
+      )}
 
       <TooltipProvider>
         <Tooltip>
@@ -57,7 +64,7 @@ function Notes({ onClick }: { onClick: () => void }) {
           title={sendModalPropsItems?.title as string}
           content={sendModalPropsItems?.content as string}
           noteColor={sendModalPropsItems?.noteColor as string}
-          onCloseBtn={()=>setFullViewNoteModalShow(false)}
+          onCloseBtn={() => setFullViewNoteModalShow(false)}
         />
       )}
     </div>

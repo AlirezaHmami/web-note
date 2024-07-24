@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { useDispatch } from "react-redux";
-import { addNote, notesState } from "@/features/counter/notesSlice";
+import { addNote, notesState } from "@/features/notesSlice";
 import { TiWarning } from "react-icons/ti";
 
 function ModalNote({ onClose }: { onClose: () => void }) {
@@ -52,36 +52,48 @@ function ModalNote({ onClose }: { onClose: () => void }) {
         <div className="flex items-center">
           <label className="mr-3">Note color :</label>
           <div className="flex space-x-3">
-
-              <div
-                className={`bg-orange-100 hover:bg-orange-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer flex items-center justify-center`}
-                onClick={() => setNoteColor("orange")}
-              >{noteColor == "orange" && "\u2713"}</div>
-              <div
-                className={`bg-gray-100 hover:bg-gray-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer flex items-center justify-center`}
-                onClick={() => setNoteColor("gray")}
-              >{noteColor == "gray" && "\u2713"}</div>
-              <div
-                className={`bg-blue-100 hover:bg-blue-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer flex items-center justify-center`}
-                onClick={() => setNoteColor("blue")}
-              >{noteColor == "blue" && "\u2713"}</div>
-              <div
-                className={`bg-green-100 hover:bg-green-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer flex items-center justify-center`}
-                onClick={() => setNoteColor("green")}
-              >{noteColor == "green" && "\u2713"}</div>
-              <div
-                className={`bg-red-100 hover:bg-red-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer flex items-center justify-center`}
-                onClick={() => setNoteColor("red")}
-              >{noteColor == "red" && "\u2713"}</div>
-              <div
-                className={`bg-yellow-100 hover:bg-yellow-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer flex items-center justify-center`}
-                onClick={() => setNoteColor("yellow")}
-              >{noteColor == "yellow" && "\u2713"}</div>
-              <div
-                className={`bg-purple-100 hover:bg-purple-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer flex items-center justify-center`}
-                onClick={() => setNoteColor("purple")}
-              >{noteColor == "purple" && "\u2713"}</div>
-
+            <div
+              className={`bg-orange-100 hover:bg-orange-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer flex items-center justify-center`}
+              onClick={() => setNoteColor("orange")}
+            >
+              {noteColor == "orange" && "\u2713"}
+            </div>
+            <div
+              className={`bg-gray-100 hover:bg-gray-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer flex items-center justify-center`}
+              onClick={() => setNoteColor("gray")}
+            >
+              {noteColor == "gray" && "\u2713"}
+            </div>
+            <div
+              className={`bg-blue-100 hover:bg-blue-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer flex items-center justify-center`}
+              onClick={() => setNoteColor("blue")}
+            >
+              {noteColor == "blue" && "\u2713"}
+            </div>
+            <div
+              className={`bg-green-100 hover:bg-green-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer flex items-center justify-center`}
+              onClick={() => setNoteColor("green")}
+            >
+              {noteColor == "green" && "\u2713"}
+            </div>
+            <div
+              className={`bg-red-100 hover:bg-red-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer flex items-center justify-center`}
+              onClick={() => setNoteColor("red")}
+            >
+              {noteColor == "red" && "\u2713"}
+            </div>
+            <div
+              className={`bg-yellow-100 hover:bg-yellow-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer flex items-center justify-center`}
+              onClick={() => setNoteColor("yellow")}
+            >
+              {noteColor == "yellow" && "\u2713"}
+            </div>
+            <div
+              className={`bg-purple-100 hover:bg-purple-300 w-5 h-5 rounded-full border border-orange-600 cursor-pointer flex items-center justify-center`}
+              onClick={() => setNoteColor("purple")}
+            >
+              {noteColor == "purple" && "\u2713"}
+            </div>
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "./ui/button";
-import { notesState, removeNote } from "@/features/counter/notesSlice";
+import { notesState, removeNote } from "@/features/notesSlice";
 import { useDispatch } from "react-redux";
 
 interface IFullViewNoteModal extends notesState {

@@ -1,6 +1,5 @@
 import ModalNote from "./Components/ModalNote";
 import Navbar from "./Components/Navbar";
-import Tst from "./Components/Tst";
 import { Tabs, TabsContent, TabsTrigger, TabsList } from "./Components/ui/tabs";
 import Notes from "./Views/Notes";
 import Reminders from "./Views/Reminders";
@@ -8,11 +7,16 @@ import To_Dos from "./Views/To-Dos";
 import { useState } from "react";
 function App() {
   const [modalShow, setModalShow] = useState<boolean>(false)
-  
+  const handelNoteClick = () => {
+    setModalShow(!modalShow)
+      window.scrollTo({
+        top: 0,
+        behavior: 'auto'
+      });
+  }
   return (
     <>
       <Navbar />
-      <Tst />
       <Tabs
         defaultValue="Notes"
         className="w-[90vw] mx-auto flex flex-col items-center justify-start"
@@ -29,7 +33,7 @@ function App() {
           </TabsTrigger>
         </TabsList>
         <TabsContent value="Notes" className="w-full">
-          <Notes onClick={() => setModalShow(!modalShow)}/>
+          <Notes onClick={handelNoteClick}/>
         </TabsContent>
         <TabsContent value="Reminders" className="w-full">
           <Reminders />
