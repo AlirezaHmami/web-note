@@ -9,7 +9,6 @@ import { RootState } from "@/App/Store";
 function Reminders() {
   const [modalReminderShow, setModalReminderShow] = useState<boolean>(false);
   const dateTime = useDateAndTime()
-  const tmepNotes = [1, 2, 3, 4, 5, 6];
   const reminders = useSelector((state:RootState)=>state.reminders.values)
 
   return (
