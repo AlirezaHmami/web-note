@@ -1,8 +1,14 @@
-# React + TypeScript + Vite
+# Web Note Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a **web note application** built using **React, Vite, and TypeScript**. It includes functionalities for **notes, reminders, and to-do lists**. I would be thrilled to see additional features such as:
 
-Currently, two official plugins are available:
+- **Tagging and categorization** for better organization of notes.
+- **Search functionality** to quickly find specific notes or tasks.
+- **Priority levels** for to-do items to manage tasks more effectively.
+- **Collaboration tools** to share notes and tasks with others.
+- **Notifications and alerts** for reminders and deadlines.
+- **Dark mode** for a more comfortable viewing experience in low-light environments.
+
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
